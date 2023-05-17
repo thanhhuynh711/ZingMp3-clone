@@ -1,0 +1,14 @@
+.player-public {
+  background: url("../../assets/img/download\ \(1\).jpg") top center / cover
+    no-repeat;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(23, 15, 35, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
