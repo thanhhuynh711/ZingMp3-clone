@@ -26,6 +26,7 @@ import {
   AiOutlineHeart,
   AiFillStepBackward,
   AiOutlinePlayCircle,
+  AiOutlineUserAdd,
 } from "react-icons/ai";
 
 const icons = {
@@ -56,6 +57,7 @@ const icons = {
   BsFillVolumeDownFill,
   BsThreeDots,
   RiDeleteBin6Line,
+  AiOutlineUserAdd,
 };
 
 export default icons;

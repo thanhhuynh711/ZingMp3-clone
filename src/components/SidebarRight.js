@@ -72,7 +72,7 @@ const SidebarRight = () => {
                     title={item?.title}
                     artistsNames={item?.artistsNames}
                     sid={item?.sid}
-                    sm
+                    size="w-[40px] h-[40px]"
                   />
                 ))}
               </div>
@@ -86,8 +86,8 @@ const SidebarRight = () => {
             title={curSongData?.title}
             artistsNames={curSongData?.artistsNames}
             sid={curSongData?.encodeId}
-            sm
             style="bg-main-400"
+            size="w-[40px] h-[40px]"
           />
           <div className="flex flex-col gap-1 pt-[15px] px-2 pb-[5px]">
             <span className="text-sm font-bold">Tiếp theo</span>
@@ -116,7 +116,7 @@ const SidebarRight = () => {
                     title={item?.title}
                     artistsNames={item?.artistsNames}
                     sid={item?.encodeId}
-                    sm
+                    size="w-[40px] h-[40px]"
                   />
                 ))}
               </div>

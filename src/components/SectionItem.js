@@ -11,6 +11,7 @@ const SectionItem = ({
   artistsNames,
   sortDescription,
   data,
+  NoSortDescription,
 }) => {
   const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false);
@@ -74,9 +75,11 @@ const SectionItem = ({
           <span>{artistsNames}</span>
         ) : (
           <span>
-            {sortDescription?.length >= 40
-              ? `${sortDescription?.slice(0, 40)}...`
-              : sortDescription}
+            {!NoSortDescription
+              ? sortDescription?.length >= 40
+                ? `${sortDescription?.slice(0, 40)}...`
+                : sortDescription
+              : ""}
           </span>
         )}
       </span>

@@ -9,6 +9,9 @@ import {
   Personal,
   Album,
   WeekRank,
+  Search,
+  SearchSong,
+  SearchAll,
 } from "./containers/public/";
 import path from "./ultis/path";
 
@@ -33,6 +36,10 @@ function App() {
             <Route path={path.ALBUM__TITLE__PID} element={<Album />} />
             <Route path={path.PLAYLIST__TITLE__PID} element={<Album />} />
             <Route path={path.WEEKRANK_TITLE_PID} element={<WeekRank />} />
+            <Route path={path.SEARCH} element={<Search />}>
+              <Route path={path.ALL} element={<SearchAll />} />
+              <Route path={path.SONG} element={<SearchSong />} />
+            </Route>
 
             <Route path={path.STAR} element={<Home />} />
           </Route>

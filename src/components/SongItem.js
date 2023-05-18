@@ -12,7 +12,7 @@ const SongItem = ({
   sid,
   releaseDate,
   style,
-  sm,
+  size,
 }) => {
   const dispatch = useDispatch();
 
@@ -29,16 +29,14 @@ const SongItem = ({
     >
       <img
         src={thumbnail}
-        className={` object-cover rounded-md ${
-          sm ? "w-[40px] h-[40px]" : "w-[60px] h-[60px]"
-        }`}
+        className={` object-cover rounded-md ${size || "w-[60px] h-[60px]"}`}
         alt="thumbnail"
       />
       <div className="flex flex-col">
         <span className="text-sm font-semibold">
           {title?.length > 30 ? `${title.slice(0, 30)}...` : title}
         </span>
-        <span className={` text-gray-500 ${sm ? "text-xs" : "text-sm"}`}>
+        <span className={` text-gray-500 ${size ? "text-xs" : "text-sm"}`}>
           {artistsNames?.length > 30
             ? `${artistsNames.slice(0, 30)}...`
             : artistsNames}
