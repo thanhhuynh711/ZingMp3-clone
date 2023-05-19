@@ -4,6 +4,7 @@ import * as actions from "../store/action";
 import { useDispatch } from "react-redux";
 import { useNavigate, createSearchParams } from "react-router-dom";
 import path from "../ultis/path";
+import { AiOutlineClose } from "react-icons/ai";
 
 const { BiSearch } = icons;
 
@@ -25,7 +26,15 @@ const Search = () => {
   };
 
   return (
-    <div className="w-full flex items-center bg-[#2f2739] rounded-[20px]">
+    <div className="w-full relative flex items-center bg-[#2f2739] rounded-[20px]">
+      {keyword && (
+        <span
+          onClick={() => setKeyword("")}
+          className="absolute right-[16px] text-white cursor-pointer"
+        >
+          <AiOutlineClose />
+        </span>
+      )}
       <span className="text-[#fff] h-10 px-4 flex items-center justify-center ">
         <BiSearch size={20} />
       </span>

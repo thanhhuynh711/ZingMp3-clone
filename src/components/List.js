@@ -6,7 +6,7 @@ import * as actions from "../store/action";
 
 const { BsMusicNoteBeamed } = icons;
 
-const List = ({ songData, isHideAlbum }) => {
+const List = ({ songData, isHideAlbum, isHideNode }) => {
   const dispatch = useDispatch();
   return (
     <div

@@ -12,6 +12,7 @@ const SectionItem = ({
   sortDescription,
   data,
   NoSortDescription,
+  padding,
 }) => {
   const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false);
@@ -33,7 +34,11 @@ const SectionItem = ({
       onClick={() => {
         navigate(link?.split(".")[0], { state: { playAlbum: false } });
       }}
-      className="flex flex-col flex-auto w-1/5 gap-3 text-sm cursor-pointer "
+      className={
+        !padding
+          ? "flex flex-col w-1/5 gap-3 text-sm cursor-pointer"
+          : "flex flex-col w-1/5 mx-[-16px] p-4 gap-3 text-sm cursor-pointer"
+      }
     >
       <div
         onMouseEnter={handleHover}

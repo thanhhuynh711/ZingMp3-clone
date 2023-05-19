@@ -5,7 +5,6 @@ import { SongItem, List, SectionItem, Artist } from "../../components";
 
 const SearchAll = () => {
   const { searchData } = useSelector((state) => state.music);
-  console.log(searchData);
 
   return (
     <div className="flex flex-col w-full text-white px-[60px] gap-[60px]">
@@ -70,7 +69,7 @@ const SearchAll = () => {
                     index % 2 !== 0 ? "pl-4" : "pr-4"
                   }`}
                 >
-                  <List songData={item} isHideAlbum />
+                  <List songData={item} isHideAlbum isHideNode={true} />
                 </div>
               ))}
         </div>
@@ -95,7 +94,7 @@ const SearchAll = () => {
       </div>
       <div className="flex flex-col">
         <h3 className="text-lg font-bold mb-5">Nghệ sĩ</h3>
-        <div className="flex items-start justify-between gap-[28px]">
+        <div className="flex gap-[28px]">
           {searchData?.artists
             ?.filter((i, index) => index <= 4)
             .map((item) => (
@@ -104,6 +103,7 @@ const SearchAll = () => {
                 title={item.name}
                 image={item.thumbnailM}
                 follower={item.totalFollow}
+                link={item.link}
               />
             ))}
         </div>
