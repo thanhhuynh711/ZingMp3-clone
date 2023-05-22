@@ -1,7 +1,7 @@
 import React from "react";
 
 const Singer = () => {
-  return <div>Singer</div>;
+  return <div className="text-white">Singer</div>;
 };
 
 export default Singer;

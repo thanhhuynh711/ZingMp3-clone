@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Route, Routes } from "react-router-dom";
@@ -14,17 +14,23 @@ import {
   SearchAll,
   Singer,
   SearchPlaylist,
+  ZingChart,
 } from "./containers/public/";
 import path from "./ultis/path";
-
-import { useEffect } from "react";
 import * as actisons from "./store/action";
 import { useDispatch } from "react-redux";
+import { apiGetChartHome } from "./apis";
 
 function App() {
   const dispatch = useDispatch();
+  const [weekChart, setWeekChart] = useState(null);
   useEffect(() => {
     dispatch(actisons.getHome());
+    const fetchChartData = async () => {
+      const response = await apiGetChartHome();
+      if (response.data.err === 0) setWeekChart(response.data.data.weekChart);
+    };
+    fetchChartData();
   }, []);
 
   return (
@@ -37,8 +43,14 @@ function App() {
             <Route path={path.MY_MUSIC} element={<Personal />} />
             <Route path={path.ALBUM__TITLE__PID} element={<Album />} />
             <Route path={path.PLAYLIST__TITLE__PID} element={<Album />} />
-            <Route path={path.WEEKRANK_TITLE_PID} element={<WeekRank />} />
+            <Route
+              path={path.WEEKRANK_TITLE_PID}
+              element={
+                <WeekRank weekChart={weekChart && Object.values(weekChart)} />
+              }
+            />
             <Route path={path.HOME__SINGER} element={<Singer />} />
+            <Route path={path.ZING_CHART} element={<ZingChart />} />
             <Route path={path.SEARCH} element={<Search />}>
               <Route path={path.ALL} element={<SearchAll />} />
               <Route path={path.SONG} element={<SearchSong />} />

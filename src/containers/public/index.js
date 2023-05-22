@@ -9,3 +9,4 @@ export { default as SearchSong } from "./SearchSong";
 export { default as SearchAll } from "./SearchAll";
 export { default as Singer } from "./Singer";
 export { default as SearchPlaylist } from "./SearchPlaylist";
+export { default as ZingChart } from "./ZingChart";

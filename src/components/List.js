@@ -6,7 +6,7 @@ import * as actions from "../store/action";
 
 const { BsMusicNoteBeamed } = icons;
 
-const List = ({ songData, isHideAlbum, isHideNode }) => {
+const List = ({ songData, isHideAlbum, isHideNode, order }) => {
   const dispatch = useDispatch();
   return (
     <div
@@ -32,6 +32,21 @@ const List = ({ songData, isHideAlbum, isHideNode }) => {
             : "flex items-center gap-2 w-[80%]"
         }
       >
+        {order && (
+          <div
+            className={`${
+              order === 1
+                ? "text-shadow-no1"
+                : order === 2
+                ? "text-shadow-no2 "
+                : order === 3
+                ? "text-shadow-no3"
+                : "text-shadow-rest"
+            } text-[rgba(23,15,35,0.8)] text-[32px] flex flex-none w-[5%] justify-center items-center`}
+          >
+            {order}
+          </div>
+        )}
         <span>{!isHideAlbum && <BsMusicNoteBeamed size={14} />}</span>
         <img
           src={songData?.thumbnail}

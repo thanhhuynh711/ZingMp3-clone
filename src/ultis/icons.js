@@ -28,6 +28,8 @@ import {
   AiOutlinePlayCircle,
   AiOutlineUserAdd,
   AiOutlineClose,
+  AiOutlineLeft,
+  AiOutlineRight,
 } from "react-icons/ai";
 
 const icons = {
@@ -60,6 +62,8 @@ const icons = {
   RiDeleteBin6Line,
   AiOutlineUserAdd,
   AiOutlineClose,
+  AiOutlineLeft,
+  AiOutlineRight,
 };
 
 export default icons;
