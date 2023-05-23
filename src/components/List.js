@@ -6,7 +6,7 @@ import * as actions from "../store/action";
 
 const { BsMusicNoteBeamed } = icons;
 
-const List = ({ songData, isHideAlbum, isHideNode, order }) => {
+const List = ({ songData, isHideAlbum, isHideNode, order, isWorldWide }) => {
   const dispatch = useDispatch();
   return (
     <div
@@ -54,12 +54,33 @@ const List = ({ songData, isHideAlbum, isHideNode, order }) => {
           className="w-10 h-10 object-cover rounded-md"
         />
         <span className="flex flex-col w-full">
-          <span className="text-sm font-semibold">
+          <span
+            className={
+              isWorldWide === true
+                ? "text-sm font-semibold"
+                : "text-sm font-semibold text-gray-600"
+            }
+          >
             {songData?.title?.length > 35
               ? `${songData?.title?.slice(0, 35)}...`
               : songData?.title}
+            <span
+              className={
+                isWorldWide === false
+                  ? "bg-yellow-500 text-white text-[10px] ml-3 py-[3px] px-1 rounded-l-[2px] rounded-r-[2px]"
+                  : "hidden"
+              }
+            >
+              PREMIUM
+            </span>
           </span>
-          <span className="text-[12px] text-gray-400">
+          <span
+            className={
+              isWorldWide === true
+                ? "text-[12px] text-gray-400"
+                : "text-[12px] text-gray-600"
+            }
+          >
             {songData?.artistsNames}
           </span>
         </span>

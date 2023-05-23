@@ -36,8 +36,8 @@ const SectionItem = ({
       }}
       className={
         !padding
-          ? "flex flex-col w-1/5 gap-3 text-sm cursor-pointer"
-          : "flex flex-col w-1/5 mx-[-16px] p-4 gap-3 text-sm cursor-pointer"
+          ? "flex flex-col flex-1 gap-3 text-sm cursor-pointer"
+          : "flex flex-col flex-1 mx-[-16px] p-4 gap-3 text-sm cursor-pointer"
       }
     >
       <div

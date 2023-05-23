@@ -8,6 +8,7 @@ const { BsDot } = icons;
 
 const Lists = ({ totalDuration, isHideTime }) => {
   const { songs } = useSelector((state) => state.music);
+  console.log(songs);
   return (
     <div className="w-full flex flex-col mt-4">
       <div className=" flex justify-between items-center text-gray-400 mb-3 font-semibold text-[14px] px-2">
@@ -19,7 +20,12 @@ const Lists = ({ totalDuration, isHideTime }) => {
       </div>
       <div className="flex flex-col">
         {songs?.map((item) => (
-          <List isHideNode key={item.encodeId} songData={item} />
+          <List
+            isHideNode
+            key={item.encodeId}
+            songData={item}
+            isWorldWide={item.isWorldWide}
+          />
         ))}
       </div>
       {totalDuration && (

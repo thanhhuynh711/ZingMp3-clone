@@ -6,6 +6,7 @@ import path from "../ultis/path";
 const RankList = ({ data, number, isHideAlbum, titleBtn, link, noneBtn }) => {
   const [isShowFull, setIsShowFull] = useState(false);
   const [songs, setSongs] = useState(null);
+  console.log(songs);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const RankList = ({ data, number, isHideAlbum, titleBtn, link, noneBtn }) => {
           key={item.encodeId}
           isHideAlbum
           order={index + 1}
+          isWorldWide={item.isWorldWide}
         />
       ))}
       <div className="flex justify-center items-center w-full">
