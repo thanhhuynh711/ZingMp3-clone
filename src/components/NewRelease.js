@@ -57,6 +57,7 @@ const NewRelease = () => {
                   artistsNames={item.artistsNames}
                   releaseDate={item.releaseDate}
                   sid={item.encodeId}
+                  isWorldWide={item.isWorldWide}
                 />
               </div>
             ))}

@@ -13,6 +13,7 @@ const SongItem = ({
   releaseDate,
   style,
   size,
+  isWorldWide,
 }) => {
   const dispatch = useDispatch();
 
@@ -23,7 +24,7 @@ const SongItem = ({
         dispatch(actions.play(true));
         dispatch(actions.setRecent({ thumbnail, title, artistsNames, sid }));
       }}
-      className={`w-full flex-auto flex gap-[10px] p-[10px] ${
+      className={`w-full flex-auto flex gap-[10px] p-[10px] cursor-pointer ${
         style || "hover:bg-main-100/40"
       } rounded-md`}
     >
@@ -33,8 +34,23 @@ const SongItem = ({
         alt="thumbnail"
       />
       <div className="flex flex-col">
-        <span className="text-sm font-semibold">
+        <span
+          className={
+            isWorldWide === true
+              ? "text-sm font-semibold"
+              : "text-sm font-semibold text-gray-600"
+          }
+        >
           {title?.length > 30 ? `${title.slice(0, 30)}...` : title}
+          <span
+            className={
+              isWorldWide === false
+                ? "bg-yellow-500 text-white text-[10px] ml-3 py-[3px] px-1 rounded-l-[2px] rounded-r-[2px]"
+                : "hidden"
+            }
+          >
+            PREMIUM
+          </span>
         </span>
         <span className={` text-gray-500 ${size ? "text-xs" : "text-sm"}`}>
           {artistsNames?.length > 30
